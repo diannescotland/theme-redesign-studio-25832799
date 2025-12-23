@@ -41,7 +41,7 @@ const BreadcrumbLink = React.forwardRef<
 >(({ asChild, className, ...props }, ref) => {
   const Comp = asChild ? Slot : "a";
 
-  return <Comp ref={ref} className={cn("transition-colors hover:text-foreground", className)} {...props} />;
+  return <Comp ref={ref} className={cn("transition-colors hover:text-primary", className)} {...props} />;
 });
 BreadcrumbLink.displayName = "BreadcrumbLink";
 
@@ -60,7 +60,7 @@ const BreadcrumbPage = React.forwardRef<HTMLSpanElement, React.ComponentPropsWit
 BreadcrumbPage.displayName = "BreadcrumbPage";
 
 const BreadcrumbSeparator = ({ children, className, ...props }: React.ComponentProps<"li">) => (
-  <li role="presentation" aria-hidden="true" className={cn("[&>svg]:size-3.5", className)} {...props}>
+  <li role="presentation" aria-hidden="true" className={cn("[&>svg]:size-3.5 text-muted-foreground", className)} {...props}>
     {children ?? <ChevronRight />}
   </li>
 );
@@ -70,7 +70,7 @@ const BreadcrumbEllipsis = ({ className, ...props }: React.ComponentProps<"span"
   <span
     role="presentation"
     aria-hidden="true"
-    className={cn("flex h-9 w-9 items-center justify-center", className)}
+    className={cn("flex h-9 w-9 items-center justify-center text-muted-foreground", className)}
     {...props}
   >
     <MoreHorizontal className="h-4 w-4" />
